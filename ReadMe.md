@@ -8,6 +8,10 @@
 
 ---
 
+## 🌐 Demo en línea 🚀 ¿Cómo ejecutarlo?
+
+Puedes ver el portafolio publicado en GitHub Pages aquí:  
+👉 [https://deamacevedo.github.io/Deam-Store/](https://deamacevedo.github.io/Deam-Store/)  
 
 
 ## 🎨 Inspiración y Referencias de Diseño
