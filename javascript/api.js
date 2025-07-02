@@ -40,6 +40,23 @@ function loadCartFromStorage() {
     }
 }
 
+function saveWishToStorage() {
+    localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(wish));
+}
+
+function loadWishFromStorage() {
+    const savedWish = localStorage.getItem(CONFIG.STORAGE_KEY);
+    if (savedWish) {
+        try {
+            wish = JSON.parse(savedWish);
+            updateWishyUI();
+        } catch (error) {
+            console.error('Error loading favs from storage:', error);
+            wish = [];
+        }
+    }
+}
+
 // ============= FILTER FUNCTIONS =============
 
 function filterProducts() {

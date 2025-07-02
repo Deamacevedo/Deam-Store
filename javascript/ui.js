@@ -56,6 +56,9 @@ function renderProducts() {
                         <span class="text-sm">${product.rating.rate}</span>
                     </div>
                 </div>
+                <button onclick="addToWishlist(${product.id})" class="w-full bg-gradient-to-r from-accent to-accent-hover text-white py-2 rounded-lg font-medium hover:from-accent-hover hover:to-gray-600 transition-all duration-300 mt-4 btn-hover">
+                    Agregar a favoritos
+                </button>
                 <button onclick="addToCart(${product.id})" class="w-full bg-gradient-to-r from-accent to-accent-hover text-white py-2 rounded-lg font-medium hover:from-accent-hover hover:to-gray-600 transition-all duration-300 mt-4 btn-hover">
                     Agregar al Carrito
                 </button>
@@ -65,6 +68,35 @@ function renderProducts() {
 }
 
 // ============= NOTIFICATION FUNCTIONS =============
+
+function showCartNotification(message, type = 'success') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => {
+        notification.remove();
+    });
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type === 'error' ? 'error' : ''}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Hide notification after duration
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, CONFIG.NOTIFICATION_DURATION);
+}
 
 function showCartNotification(message, type = 'success') {
     // Remove existing notifications

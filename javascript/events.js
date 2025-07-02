@@ -216,7 +216,12 @@ window.DeamStore = {
     openCheckoutModal,
     closeCheckoutModal,
     clearCart,
-    showCartNotification
+    showCartNotification,
+    addToWish,
+    removeFromWish,
+    toggleWish,
+    clearWish,
+    showWishNotification
 };
 
 // Global error handler

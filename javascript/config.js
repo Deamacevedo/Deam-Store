@@ -6,6 +6,7 @@ let products = [];
 let cart = [];
 let filteredProducts = [];
 let isCheckoutModalOpen = false;
+let wish = [];
 
 // ============= DOM ELEMENTS =============
 const productsGrid = document.getElementById('productsGrid');
@@ -21,6 +22,11 @@ const totalAmount = document.getElementById('totalAmount');
 const searchInput = document.getElementById('searchInput');
 const categoryFilter = document.getElementById('categoryFilter');
 const sortFilter = document.getElementById('sortFilter');
+const wishSidebar = document.getElementById('wishSidebar');
+const wishOverlay = document.getElementById('wishOverlay');
+const wishCount = document.getElementById('wishCount');
+const wishItems = document.getElementById('wishItemsList');
+const emptyWishMessage = document.getElementById('emptyWishMessage');
 
 // ============= CONFIGURATION =============
 const CONFIG = {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +29,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
+
 <body class="bg-dark-bg text-dark-text font-sans">
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 glass border-b border-dark-border">
@@ -37,62 +39,110 @@
                 <div class="flex-shrink-0">
                     <h1 class="text-2xl font-bold gradient-text tracking-wider">DEAM STORE</h1>
                 </div>
-                
+
                 <!-- Product Navigation -->
                 <nav class="hidden md:flex space-x-8">
-                    <button class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200" data-category="">
+                    <button
+                        class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200"
+                        data-category="">
                         Todos
                     </button>
-                    <button class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200" data-category="electronics">
+                    <button
+                        class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200"
+                        data-category="electronics">
                         Electrónicos
                     </button>
-                    <button class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200" data-category="jewelery">
+                    <button
+                        class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200"
+                        data-category="jewelery">
                         Joyería
                     </button>
-                    <button class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200" data-category="men's clothing">
+                    <button
+                        class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200"
+                        data-category="men's clothing">
                         Hombre
                     </button>
-                    <button class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200" data-category="women's clothing">
+                    <button
+                        class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-dark-text hover:bg-white/10 transition-all duration-200"
+                        data-category="women's clothing">
                         Mujer
                     </button>
                 </nav>
-                
+
+
+
                 <!-- Cart Icon -->
-                <div class="flex items-center">
-                    <button id="cartToggle" class="relative p-2 border border-dark-border rounded-lg hover:bg-white/10 transition-all duration-200">
+                <div class="flex items-center space-x-5">
+
+                    <button onclick="toggleWishlistView()"
+                        style="margin-left: 10px; padding: 8px; background: #333; color: white; border: none; border-radius: 4px;">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.89982 14.6651 9.84977 19.1041 11.4721 20.5408C11.6536 20.7016 11.7444 20.7819 11.8502 20.8135C11.9426 20.8411 12.0437 20.8411 12.1361 20.8135C12.2419 20.7819 12.3327 20.7016 12.5142 20.5408C14.1365 19.1041 19.0865 14.6651 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg> (<span id="wishlistCount">0</span>)
+                    </button>
+                    <div id="wishlistView" style="display: none; margin: 20px; padding: 20px; background: #2d2d2d; border-radius: 8px;">
+                        <h2 style="color: white; margin-bottom: 20px;">Mis Favoritos</h2>
+                        <div id="wishlistList">
+                            <!-- Los productos favoritos aparecerán aquí -->
+                        </div>
+                        <button onclick="toggleWishlistView()"
+                            style="margin-top: 20px; padding: 8px 16px; background: #666; color: white; border: none; border-radius: 4px;">
+                            Cerrar
+                        </button>
+                    </div>
+
+
+
+
+                    <button id="cartToggle"
+                        class="relative p-2 border border-dark-border rounded-lg hover:bg-white/10 transition-all duration-200">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 7.5M7 13h10M17 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 7.5M7 13h10M17 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z">
+                            </path>
                         </svg>
-                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        <span id="cartCount"
+                            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </button>
                 </div>
-                
+
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button id="mobileMenuToggle" class="p-2 border border-dark-border rounded-lg hover:bg-white/10">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
-            
+
             <!-- Mobile Navigation -->
             <div id="mobileMenu" class="md:hidden hidden bg-black/95 backdrop-blur-lg border-t border-dark-border">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <button class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left" data-category="">
+                    <button
+                        class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left"
+                        data-category="">
                         Todos
                     </button>
-                    <button class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left" data-category="electronics">
+                    <button
+                        class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left"
+                        data-category="electronics">
                         Electrónicos
                     </button>
-                    <button class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left" data-category="jewelery">
+                    <button
+                        class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left"
+                        data-category="jewelery">
                         Joyería
                     </button>
-                    <button class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left" data-category="men's clothing">
+                    <button
+                        class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left"
+                        data-category="men's clothing">
                         Hombre
                     </button>
-                    <button class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left" data-category="women's clothing">
+                    <button
+                        class="nav-link block px-3 py-2 rounded-lg text-base font-medium text-dark-text hover:bg-white/10 w-full text-left"
+                        data-category="women's clothing">
                         Mujer
                     </button>
                 </div>
@@ -101,29 +151,31 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-16 relative overflow-hidden">
+    <section
+        class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-16 relative overflow-hidden">
         <!-- Background Image Grid -->
         <div class="absolute inset-0 opacity-8">
             <!-- Grid Container -->
             <div id="heroImageGrid" class="hero-grid">
                 <!-- Images will be inserted here dynamically -->
             </div>
-            
+
             <!-- Overlay for content readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-dark-bg/60 via-dark-bg/70 to-dark-bg/60"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-dark-bg/40 via-transparent to-dark-bg/40"></div>
         </div>
-        
+
         <!-- Hero Content (On top of images) -->
-        <div class="max-w-4xl mx-auto relative z-20 bg-dark-bg/60 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-dark-border/50 shadow-2xl">
+        <div
+            class="max-w-4xl mx-auto relative z-20 bg-dark-bg/60 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-dark-border/50 shadow-2xl">
             <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-6 tracking-wide drop-shadow-lg">
                 DEAM STORE
             </h1>
             <p class="text-xl md:text-2xl text-dark-text-secondary mb-8 max-w-2xl mx-auto drop-shadow-md">
                 Descubre productos únicos con estilo y elegancia
             </p>
-            <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" 
-                    class="bg-gradient-to-r from-accent to-accent-hover text-white px-8 py-3 rounded-lg font-medium hover:from-accent-hover hover:to-gray-600 transition-all duration-300 transform hover:-translate-y-1 border border-dark-border shadow-lg hover:shadow-xl">
+            <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})"
+                class="bg-gradient-to-r from-accent to-accent-hover text-white px-8 py-3 rounded-lg font-medium hover:from-accent-hover hover:to-gray-600 transition-all duration-300 transform hover:-translate-y-1 border border-dark-border shadow-lg hover:shadow-xl">
                 Explorar Productos
             </button>
         </div>
@@ -136,25 +188,29 @@
                 <!-- Search -->
                 <div class="flex-1 w-full md:w-auto">
                     <div class="relative">
-                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-dark-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-dark-text-secondary"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
-                        <input type="text" id="searchInput" placeholder="Buscar productos..." 
-                               class="w-full pl-10 pr-4 py-2 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
+                        <input type="text" id="searchInput" placeholder="Buscar productos..."
+                            class="w-full pl-10 pr-4 py-2 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
                     </div>
                 </div>
-                
+
                 <!-- Category Filter -->
-                <select id="categoryFilter" class="px-4 py-2 bg-white/10 border border-dark-border rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-white/20">
+                <select id="categoryFilter"
+                    class="px-4 py-2 bg-white/10 border border-dark-border rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-white/20">
                     <option value="">Todas las categorías</option>
                     <option value="electronics">Electrónicos</option>
                     <option value="jewelery">Joyería</option>
                     <option value="men's clothing">Ropa de Hombre</option>
                     <option value="women's clothing">Ropa de Mujer</option>
                 </select>
-                
+
                 <!-- Sort Filter -->
-                <select id="sortFilter" class="px-4 py-2 bg-white/10 border border-dark-border rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-white/20">
+                <select id="sortFilter"
+                    class="px-4 py-2 bg-white/10 border border-dark-border rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-white/20">
                     <option value="">Ordenar por</option>
                     <option value="price-asc">Precio: Menor a Mayor</option>
                     <option value="price-desc">Precio: Mayor a Menor</option>
@@ -171,37 +227,41 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">
                 Nuestros Productos
             </h2>
-            
+
             <!-- Loading Indicator -->
             <div id="loadingIndicator" class="flex justify-center items-center py-20">
                 <div class="loading w-8 h-8 border-4 border-dark-border border-t-white rounded-full"></div>
                 <span class="ml-3 text-dark-text-secondary">Cargando productos...</span>
             </div>
-            
+
             <!-- Error Message -->
             <div id="errorMessage" class="hidden text-center py-20">
                 <div class="text-red-400 mb-4">
                     <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <p class="text-xl font-semibold">Error al cargar productos</p>
                     <p class="text-dark-text-secondary mt-2">Por favor, intenta recargar la página</p>
                 </div>
-                <button onclick="location.reload()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition-colors">
+                <button onclick="location.reload()"
+                    class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition-colors">
                     Reintentar
                 </button>
             </div>
-            
+
             <!-- Products Grid -->
             <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <!-- Products will be dynamically inserted here -->
             </div>
-            
+
             <!-- No Products Found -->
             <div id="noProductsMessage" class="hidden text-center py-20">
                 <div class="text-dark-text-secondary">
                     <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.034 0-3.9.785-5.291 2.073M6.343 6.343A8 8 0 1017.657 17.657 8 8 0 006.343 6.343z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.034 0-3.9.785-5.291 2.073M6.343 6.343A8 8 0 1017.657 17.657 8 8 0 006.343 6.343z">
+                        </path>
                     </svg>
                     <p class="text-xl font-semibold">No se encontraron productos</p>
                     <p class="mt-2">Intenta con otros filtros de búsqueda</p>
@@ -210,24 +270,30 @@
         </div>
     </section>
 
+    
+
+
     <!-- Cart Sidebar -->
-    <div id="cartSidebar" class="cart-sidebar fixed top-0 right-0 h-full w-full sm:w-96 bg-black/95 backdrop-blur-lg z-50 border-l border-dark-border">
+    <div id="cartSidebar"
+        class="cart-sidebar fixed top-0 right-0 h-full w-full sm:w-96 bg-black/95 backdrop-blur-lg z-50 border-l border-dark-border">
         <div class="flex flex-col h-full">
             <!-- Cart Header -->
             <div class="flex items-center justify-between p-6 border-b border-dark-border">
                 <h3 class="text-xl font-semibold">Carrito de Compras</h3>
                 <button id="closeCart" class="p-2 hover:bg-white/10 rounded-lg transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>
-            
+
             <!-- Cart Items -->
             <div id="cartItems" class="flex-1 overflow-y-auto p-6">
                 <div id="emptyCartMessage" class="text-center text-dark-text-secondary py-20">
                     <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 7.5M7 13h10"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 7.5M7 13h10"></path>
                     </svg>
                     <p class="text-lg font-medium">Tu carrito está vacío</p>
                     <p class="mt-2">Agrega productos para comenzar</p>
@@ -236,14 +302,15 @@
                     <!-- Cart items will be dynamically inserted here -->
                 </div>
             </div>
-            
+
             <!-- Cart Total -->
             <div id="cartTotal" class="border-t border-dark-border p-6 bg-black/80">
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-lg font-semibold">Total:</span>
                     <span id="totalAmount" class="text-2xl font-bold">$0.00</span>
                 </div>
-                <button id="checkoutBtn" class="w-full bg-gradient-to-r from-accent to-accent-hover text-white py-3 rounded-lg font-medium hover:from-accent-hover hover:to-gray-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                <button id="checkoutBtn"
+                    class="w-full bg-gradient-to-r from-accent to-accent-hover text-white py-3 rounded-lg font-medium hover:from-accent-hover hover:to-gray-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                     Proceder al Pago
                 </button>
             </div>
@@ -260,18 +327,21 @@
                 <h2 class="text-2xl font-bold gradient-text">Finalizar Compra</h2>
                 <button id="closeCheckoutModal" class="p-2 hover:bg-white/10 rounded-lg transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>
-            
+
             <div class="p-6">
                 <div class="grid lg:grid-cols-2 gap-8">
                     <!-- Order Summary -->
                     <div class="order-2 lg:order-1">
                         <h3 class="text-xl font-semibold mb-4 flex items-center">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.034 0-3.9.785-5.291 2.073M6.343 6.343A8 8 0 1017.657 17.657 8 8 0 006.343 6.343z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.034 0-3.9.785-5.291 2.073M6.343 6.343A8 8 0 1017.657 17.657 8 8 0 006.343 6.343z">
+                                </path>
                             </svg>
                             Resumen del Pedido
                         </h3>
@@ -298,14 +368,16 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Order Notes -->
                         <div class="mt-6">
                             <label class="block text-sm font-medium mb-2">Notas del pedido (opcional)</label>
-                            <textarea id="orderNotes" rows="3" class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20 resize-none" placeholder="Instrucciones especiales de entrega..."></textarea>
+                            <textarea id="orderNotes" rows="3"
+                                class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
+                                placeholder="Instrucciones especiales de entrega..."></textarea>
                         </div>
                     </div>
-                    
+
                     <!-- Checkout Form -->
                     <div class="order-1 lg:order-2">
                         <form id="checkoutForm" class="space-y-6">
@@ -313,52 +385,70 @@
                             <div>
                                 <h3 class="text-xl font-semibold mb-4 flex items-center">
                                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                        </path>
                                     </svg>
                                     Información de Contacto
                                 </h3>
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Nombre *</label>
-                                        <input type="text" name="firstName" id="firstName" required class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20" placeholder="Dylan">
+                                        <input type="text" name="firstName" id="firstName" required
+                                            class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20"
+                                            placeholder="Dylan">
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Apellido *</label>
-                                        <input type="text" name="lastName" id="lastName" required class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20" placeholder="Acevedo">
+                                        <input type="text" name="lastName" id="lastName" required
+                                            class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20"
+                                            placeholder="Acevedo">
                                     </div>
                                 </div>
                                 <div class="mt-4">
                                     <label class="block text-sm font-medium mb-2">Email *</label>
-                                    <input type="email" name="email" id="email" required class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20" placeholder="dylan@email.com">
+                                    <input type="email" name="email" id="email" required
+                                        class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20"
+                                        placeholder="dylan@email.com">
                                 </div>
                                 <div class="mt-4">
                                     <label class="block text-sm font-medium mb-2">Teléfono *</label>
-                                    <input type="tel" name="phone" id="phone" required class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20" placeholder="+57 312 123 4567">
+                                    <input type="tel" name="phone" id="phone" required
+                                        class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20"
+                                        placeholder="+57 312 123 4567">
                                 </div>
                             </div>
-                            
+
                             <!-- Shipping Address -->
                             <div>
                                 <h3 class="text-xl font-semibold mb-4 flex items-center">
                                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     </svg>
                                     Dirección de Entrega
                                 </h3>
                                 <div class="space-y-4">
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Dirección *</label>
-                                        <input type="text" name="address" id="address" required class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20" placeholder="Calle 123 #45-67">
+                                        <input type="text" name="address" id="address" required
+                                            class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20"
+                                            placeholder="Calle 123 #45-67">
                                     </div>
                                     <div class="grid md:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-sm font-medium mb-2">Ciudad *</label>
-                                            <input type="text" name="city" id="city" required class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20" placeholder="Bucaramanga">
+                                            <input type="text" name="city" id="city" required
+                                                class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20"
+                                                placeholder="Bucaramanga">
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium mb-2">Departamento *</label>
-                                            <select name="department" id="department" required class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-white/20">
+                                            <select name="department" id="department" required
+                                                class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text focus:outline-none focus:ring-2 focus:ring-white/20">
                                                 <option value="">Seleccionar</option>
                                                 <option value="santander">Santander</option>
                                                 <option value="antioquia">Antioquia</option>
@@ -370,78 +460,102 @@
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Código Postal</label>
-                                        <input type="text" name="postalCode" id="postalCode" class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20" placeholder="680001">
+                                        <input type="text" name="postalCode" id="postalCode"
+                                            class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20"
+                                            placeholder="680001">
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Payment Method -->
                             <div>
                                 <h3 class="text-xl font-semibold mb-4 flex items-center">
                                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                                        </path>
                                     </svg>
                                     Método de Pago
                                 </h3>
                                 <div class="space-y-4">
                                     <div class="flex items-center space-x-3">
-                                        <input type="radio" id="creditCard" name="paymentMethod" value="credit" checked class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                        <input type="radio" id="creditCard" name="paymentMethod" value="credit" checked
+                                            class="w-4 h-4 text-blue-600 focus:ring-blue-500">
                                         <label for="creditCard" class="flex items-center">
-                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                                                </path>
                                             </svg>
                                             Tarjeta de Crédito/Débito
                                         </label>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <input type="radio" id="pse" name="paymentMethod" value="pse" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                        <input type="radio" id="pse" name="paymentMethod" value="pse"
+                                            class="w-4 h-4 text-blue-600 focus:ring-blue-500">
                                         <label for="pse" class="flex items-center">
-                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                                </path>
                                             </svg>
                                             PSE (Pago Seguro en Línea)
                                         </label>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <input type="radio" id="cash" name="paymentMethod" value="cash" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                        <input type="radio" id="cash" name="paymentMethod" value="cash"
+                                            class="w-4 h-4 text-blue-600 focus:ring-blue-500">
                                         <label for="cash" class="flex items-center">
-                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                                                </path>
                                             </svg>
                                             Efectivo contra entrega
                                         </label>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Credit Card Details -->
                                 <div id="creditCardDetails" class="mt-4 space-y-4">
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Número de Tarjeta *</label>
-                                        <input type="text" name="cardNumber" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
+                                        <input type="text" name="cardNumber" id="cardNumber"
+                                            placeholder="1234 5678 9012 3456" maxlength="19"
+                                            class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
                                     </div>
                                     <div class="grid grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-sm font-medium mb-2">Fecha de Vencimiento *</label>
-                                            <input type="text" name="expiryDate" id="expiryDate" placeholder="MM/AA" maxlength="5" class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
+                                            <input type="text" name="expiryDate" id="expiryDate" placeholder="MM/AA"
+                                                maxlength="5"
+                                                class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
                                         </div>
                                         <div>
                                             <label class="block text-sm font-medium mb-2">CVV *</label>
-                                            <input type="text" name="cvv" id="cvv" placeholder="123" maxlength="4" class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
+                                            <input type="text" name="cvv" id="cvv" placeholder="123" maxlength="4"
+                                                class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
                                         </div>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium mb-2">Nombre en la Tarjeta *</label>
-                                        <input type="text" name="cardName" id="cardName" placeholder="Dylan Acevedo" class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
+                                        <input type="text" name="cardName" id="cardName" placeholder="Dylan Acevedo"
+                                            class="w-full p-3 bg-white/10 border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-white/20">
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Submit Button -->
                             <div class="pt-6 border-t border-dark-border">
-                                <button type="submit" id="submitOrder" class="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 rounded-lg font-medium text-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <button type="submit" id="submitOrder"
+                                    class="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 rounded-lg font-medium text-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed">
                                     <span class="flex items-center justify-center">
                                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                         Confirmar Pedido
                                     </span>
@@ -457,13 +571,15 @@
         </div>
     </div>
 
-    <script src="./javascript/config.js"></script>      <!-- 1. Configuration and global variables -->
-    <script src="./javascript/api.js"></script>         <!-- 2. API and data handling -->
-    <script src="./javascript/ui.js"></script>          <!-- 3. UI rendering and feedback -->
-    <script src="./javascript/cart.js"></script>        <!-- 4. Shopping cart functionality -->
-    <script src="./javascript/checkout.js"></script>    <!-- 5. Checkout and payment -->
-    <script src="./javascript/hero.js"></script>        <!-- 6. Hero background -->
-    <script src="./javascript/events.js"></script>      <!-- 7. Event listeners and initialization -->
+    <script src="./javascript/config.js"></script> <!-- 1. Configuration and global variables -->
+    <script src="./javascript/api.js"></script> <!-- 2. API and data handling -->
+    <script src="./javascript/ui.js"></script> <!-- 3. UI rendering and feedback -->
+    <script src="./javascript/cart.js"></script> <!-- 4. Shopping cart functionality -->
+    <script src="./javascript/checkout.js"></script> <!-- 5. Checkout and payment -->
+    <script src="./javascript/hero.js"></script> <!-- 6. Hero background -->
+    <script src="./javascript/events.js"></script> <!-- 7. Event listeners and initialization -->
+    <script src="./javascript/wishlist.js"></script>
 
 </body>
+
 </html>

@@ -116,7 +116,7 @@ function formatCardNumber(value) {
     const matches = v.match(/\d{4,16}/g);
     const match = matches && matches[0] || '';
     const parts = [];
-    for (let i = 0, len = match.length; i < len; i += 4) {
+    for (let i = 0, len = match.length; i < len; i += 4) {y
         parts.push(match.substring(i, i + 4));
     }
     if (parts.length) {
